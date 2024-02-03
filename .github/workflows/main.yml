@@ -40,7 +40,7 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           file: ./Dockerfile
-          build-args: ${{ env.CADDY_VERSION }}
+          build-args: CADDY_VERSION=${{ env.CADDY_VERSION }}
           push: true
           tags: | # TODO: Figure out a better way to handle versioning
             ${{ env.REGISTRY_IMAGE }}:latest
