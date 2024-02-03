@@ -7,6 +7,7 @@ on:
 
 env:
   REGISTRY_IMAGE: theraapster/caddy-proxy-cloudflare
+  CADDY_VERSION: 2.7.6
 
 jobs:
   build:
@@ -39,9 +40,10 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           file: ./Dockerfile
+          build-args: ${{ env.CADDY_VERSION }}
           push: true
           tags: | # TODO: Figure out a better way to handle versioning
             ${{ env.REGISTRY_IMAGE }}:latest
-            ${{ env.REGISTRY_IMAGE }}:2.7.6
+            ${{ env.REGISTRY_IMAGE }}:${{ env.CADDY_VERSION }}
             ghcr.io/${{ env.REGISTRY_IMAGE }}:latest
-            ghcr.io/${{ env.REGISTRY_IMAGE }}:2.7.6
+            ghcr.io/${{ env.REGISTRY_IMAGE }}:${{ env.CADDY_VERSION }}
