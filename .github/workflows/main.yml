@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY_IMAGE: theraapster/caddy-proxy-cloudflare
-  CADDY_VERSION: 2.8.4
+  CADDY_VERSION: 2.9.1
 
 jobs:
   build:
